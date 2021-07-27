@@ -1,21 +1,13 @@
-const { Pool } = require("pg");
-require('dotenv').config();
+require("dotenv").config();
 
-const pool = new Pool({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DATABASE,
-  password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT,
-  ssl: {
-    rejectUnauthorized: false
-  }
+const knex = require("knex")({
+  client: "pg",
+  connection: {
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DATABASE,
+  },
 });
 
-const query = (text, param) => {
-  return pool.query(text, param);
-};
-
-module.exports = {
-  query,
-};
+module.exports = knex;
