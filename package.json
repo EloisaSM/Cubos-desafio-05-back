@@ -4,7 +4,10 @@
   "description": "![](https://i.imgur.com/xG74tOh.png)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "knex": "knex",
+    "migration":"npm run knex migrate:up",
+    "seed": "npm run knex seed:run"
   },
   "repository": {
     "type": "git",
@@ -18,7 +21,10 @@
   },
   "homepage": "https://github.com/EloisaSM/Cubos-desafio-05-back#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "knex": "^0.95.8",
+    "pg": "^8.6.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
